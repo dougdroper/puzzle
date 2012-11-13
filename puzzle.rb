@@ -8,7 +8,6 @@ INNER_SPADE = -2
 INNER_DIAMOND = -3
 INNER_CLUBS = -4
 
-
 class Piece
   attr_reader :top, :right, :left, :bottom, :config, :id
   def initialize(config, id)
@@ -28,12 +27,10 @@ class Piece
   end
 end
 
-class Grid
-  attr_accessor :fitted_pieces, :location
+class Puzzle
+  attr_reader :pieces
   def initialize(pieces)
     @pieces = pieces
-    @pieces_dub = pieces.dup
-    @fitted_pieces = []
   end
 
   def solve(loc)
