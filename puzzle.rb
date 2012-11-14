@@ -28,19 +28,20 @@ class Piece
 end
 
 class Grid
-  attr_reader :fitted_pieces
+  attr_accessor :fitted_pieces
   def initialize(pieces)
     @pieces = pieces
     @fitted_pieces = []
   end
 
   def solve(loc)
+    puts @fitted_pieces.map(&:id).inspect
     return true if @pieces.empty?
     @pieces.each do
       next unless @fitted_pieces[loc] == nil
       @fitted_pieces[loc] = @pieces.shift
 
-      (0..4).each do
+      (0..2).each do
         return true if piece_fits?(@fitted_pieces[loc], loc) && solve(loc + 1)
         @fitted_pieces[loc].rotate
       end
