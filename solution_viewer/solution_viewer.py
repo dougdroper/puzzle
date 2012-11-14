@@ -34,21 +34,20 @@ def create_solution_image(soln):
 		if x == 3:
 			x = 0
 			y += 1
-		
+
 	composite.save('solution.png')
-	
-		
+
+
 def get_piece_and_rotation(piece):
 	for name, val in pieces.items():
 		for i in range(0,4):
 			if val == rotate(piece, i):
 				return (name, i*-90) #negative for clockwise rotation
-		
+
 def rotate(piece, rot):
 	rot = rot % len(piece)
-	return piece[rot:] + piece[:rot]	
-	
+	return piece[rot:] + piece[:rot]
+
 if __name__ == '__main__':
-	
+
 	create_solution_image(solution1)
-	
