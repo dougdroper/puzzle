@@ -35,6 +35,7 @@ class Grid
   end
 
   def solve(loc)
+    puts @fitted_pieces.map(&:id).inspect
     return true if @pieces.empty?
     @pieces.each do
       next unless @fitted_pieces[loc] == nil

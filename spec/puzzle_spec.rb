@@ -57,19 +57,30 @@ describe "Solve" do
     grid = set_up_grid
     grid.solve(0)
     grid.fitted_pieces.count.should == 9
-    # puts grid.fitted_pieces.map(&:to_s)
+    puts grid.fitted_pieces.map(&:to_s)
   end
 end
 
 def set_up_grid
-  piece_1 = Piece.new([SPADE, DIAMOND, INNER_HEART, INNER_DIAMOND], 1)
-  piece_2 = Piece.new([INNER_CLUBS, CLUBS, HEART, INNER_DIAMOND], 2)
-  piece_3 = Piece.new([INNER_CLUBS, HEART, DIAMOND, INNER_CLUBS], 3)
-  piece_4 = Piece.new([HEART, SPADE, INNER_SPADE, CLUBS], 4)
-  piece_5 = Piece.new([INNER_HEART, CLUBS, HEART, INNER_SPADE],5)
-  piece_6 = Piece.new([INNER_DIAMOND, DIAMOND, CLUBS, INNER_CLUBS],6)
-  piece_7 = Piece.new([SPADE, DIAMOND, INNER_SPADE, INNER_HEART], 7)
-  piece_8 = Piece.new([INNER_HEART, HEART, DIAMOND, INNER_DIAMOND], 8)
-  piece_9 = Piece.new([INNER_CLUBS, SPADE, SPADE, INNER_HEART], 9)
-  Grid.new([piece_4, piece_7, piece_1, piece_8, piece_5, piece_6, piece_2, piece_3, piece_9])
+  piece_1 = Piece.new([DIAMOND, INNER_HEART, INNER_DIAMOND, SPADE], 0)
+  piece_2 = Piece.new([SPADE, INNER_SPADE, INNER_CLUBS, HEART], 1)
+  piece_3 = Piece.new([HEART, INNER_DIAMOND, INNER_CLUBS, CLUBS], 2)
+  piece_4 = Piece.new([CLUBS, INNER_CLUBS, INNER_DIAMOND, DIAMOND], 3)
+  piece_5 = Piece.new([SPADE, INNER_HEART, INNER_CLUBS, SPADE], 4)
+  piece_6 = Piece.new([HEART, INNER_SPADE, INNER_HEART, CLUBS], 5)
+  piece_7 = Piece.new([DIAMOND, INNER_SPADE, INNER_HEART, SPADE], 6)
+  piece_8 = Piece.new([DIAMOND, INNER_DIAMOND, INNER_HEART, HEART], 7)
+  piece_9 = Piece.new([DIAMOND, INNER_CLUBS, INNER_CLUBS, HEART], 8)
+
+
+  Grid.new([piece_2, piece_3, piece_4, piece_5, piece_6, piece_7, piece_8, piece_9, piece_1])
 end
+
+
+
+
+
+
+
+
+
