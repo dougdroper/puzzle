@@ -35,13 +35,12 @@ class Grid
   end
 
   def solve(loc)
-    puts @fitted_pieces.map(&:id).inspect
     return true if @pieces.empty?
     @pieces.each do
       next unless @fitted_pieces[loc] == nil
       @fitted_pieces[loc] = @pieces.shift
 
-      (0..2).each do
+      (0..3).each do
         return true if piece_fits?(@fitted_pieces[loc], loc) && solve(loc + 1)
         @fitted_pieces[loc].rotate
       end

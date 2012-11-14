@@ -57,7 +57,7 @@ describe "Solve" do
     grid = set_up_grid
     grid.solve(0)
     grid.fitted_pieces.count.should == 9
-    puts grid.fitted_pieces.map(&:to_s)
+    # puts grid.fitted_pieces.map(&:to_s)
   end
 end
 
@@ -71,5 +71,5 @@ def set_up_grid
   piece_7 = Piece.new([SPADE, DIAMOND, INNER_SPADE, INNER_HEART], 7)
   piece_8 = Piece.new([INNER_HEART, HEART, DIAMOND, INNER_DIAMOND], 8)
   piece_9 = Piece.new([INNER_CLUBS, SPADE, SPADE, INNER_HEART], 9)
-  Grid.new([piece_3, piece_2, piece_5, piece_7, piece_6, piece_4, piece_9, piece_1, piece_8])
+  Grid.new([piece_4, piece_7, piece_1, piece_8, piece_5, piece_6, piece_2, piece_3, piece_9])
 end
