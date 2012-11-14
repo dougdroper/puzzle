@@ -39,18 +39,12 @@ class Grid
   def solve(loc)
     return true if @pieces.empty?
     @pieces.each_with_index do |e, i|
-      if @fitted_pieces[loc] == nil
-        @fitted_pieces[loc] = @pieces.shift
-      else
-        next
-      end
+      next unless @fitted_pieces[loc] == nil
+      @fitted_pieces[loc] = @pieces.shift
 
       (0..4).each do |k|
-        if piece_fits?(@fitted_pieces[loc], loc) && solve(loc + 1)
-          return true;
-        else
-          @fitted_pieces[loc].rotate
-        end
+        return true if piece_fits?(@fitted_pieces[loc], loc) && solve(loc + 1)
+        @fitted_pieces[loc].rotate
       end
       @pieces << @fitted_pieces.pop
     end
@@ -82,18 +76,3 @@ class Grid
     piece.left + @fitted_pieces[location - 1].right == 0
   end
 end
-
-
-# piece_1 = Piece.new([DIAMOND, INNER_HEART, INNER_DIAMOND, SPADE], 0)
-# piece_2 = Piece.new([SPADE, INNER_SPADE, INNER_CLUBS, HEART], 1)
-# piece_3 = Piece.new([DIAMOND, INNER_SPADE, INNER_HEART, SPADE], 2)
-# piece_4 = Piece.new([DIAMOND, INNER_DIAMOND, INNER_HEART, HEART], 3)
-# piece_5 = Piece.new([CLUBS, INNER_CLUBS, INNER_DIAMOND, DIAMOND], 4)
-# piece_6 = Piece.new([HEART, INNER_SPADE, INNER_HEART, CLUBS], 5)
-# piece_7 = Piece.new([SPADE, INNER_HEART, INNER_CLUBS, SPADE], 6)
-# piece_8 = Piece.new([DIAMOND, INNER_CLUBS, INNER_CLUBS, HEART], 7)
-# piece_9 = Piece.new([HEART, INNER_DIAMOND, INNER_CLUBS, CLUBS], 8)
-
-# grid = Grid.new([piece_1, piece_2,piece_3,piece_4,piece_5,piece_6,piece_7,piece_8,piece_9])
-
-# grid.solve(0)
